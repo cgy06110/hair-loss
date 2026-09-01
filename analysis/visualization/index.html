@@ -1,0 +1,291 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>脱发影响因素分析</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- 左侧菜单 -->
+        <aside class="sidebar">
+
+            <div class="logo">
+                <div class="logo-icon">H</div>
+                <div>
+                    <h2>脱发分析系统</h2>
+                    <span>Hair Loss Analysis</span>
+                </div>
+            </div>
+
+            <div class="menu-title">数据分析</div>
+
+            <button class="menu-item active" onclick="showPage('overview', this)">
+                📊 总体概况
+            </button>
+
+            <button class="menu-item" onclick="showPage('distribution', this)">
+                📈 脱发程度分布
+            </button>
+
+            <button class="menu-item" onclick="showPage('sleep', this)">
+                🌙 熬夜因素
+            </button>
+
+            <button class="menu-item" onclick="showPage('pressure', this)">
+                🧠 压力因素
+            </button>
+
+            <button class="menu-item" onclick="showPage('coffee', this)">
+                ☕ 咖啡摄入
+            </button>
+
+            <button class="menu-item" onclick="showPage('hair', this)">
+                🧴 头发护理
+            </button>
+
+            <button class="menu-item" onclick="showPage('ranking', this)">
+                🏆 因素影响排名
+            </button>
+
+        </aside>
+
+
+        <!-- 右侧内容 -->
+        <main class="main">
+
+            <!-- 顶部 -->
+            <header class="header">
+                <div>
+                    <h1 id="page-title">总体概况</h1>
+                    <p>基于 400 条样本数据的脱发影响因素分析</p>
+                </div>
+
+                <div class="status">
+                    ● 数据分析完成
+                </div>
+            </header>
+
+
+            <!-- 总体概况 -->
+            <section id="overview" class="page active">
+
+                <div class="cards">
+
+                    <div class="card">
+                        <span>样本数量</span>
+                        <strong id="sample-count">400</strong>
+                        <small>条数据</small>
+                    </div>
+
+                    <div class="card">
+                        <span>分析因素</span>
+                        <strong>11</strong>
+                        <small>个主要因素</small>
+                    </div>
+
+                    <div class="card">
+                        <span>数据来源</span>
+                        <strong>CSV</strong>
+                        <small>Python 分析结果</small>
+                    </div>
+
+                    <div class="card">
+                        <span>分析状态</span>
+                        <strong>完成</strong>
+                        <small>数据处理成功</small>
+                    </div>
+
+                </div>
+
+
+                <div class="grid">
+
+                    <div class="panel">
+                        <div class="panel-title">
+                            <h3>脱发程度分布</h3>
+                        </div>
+
+                        <canvas id="distributionChart"></canvas>
+                    </div>
+
+                    <div class="panel">
+                        <div class="panel-title">
+                            <h3>核心发现</h3>
+                        </div>
+
+                        <div class="finding">
+                            <div class="finding-icon">01</div>
+                            <div>
+                                <strong>压力因素</strong>
+                                <p>高压力人群中高程度脱发比例明显升高。</p>
+                            </div>
+                        </div>
+
+                        <div class="finding">
+                            <div class="finding-icon">02</div>
+                            <div>
+                                <strong>生活习惯</strong>
+                                <p>熬夜、咖啡摄入等生活因素与脱发存在一定关联。</p>
+                            </div>
+                        </div>
+
+                        <div class="finding">
+                            <div class="finding-icon">03</div>
+                            <div>
+                                <strong>综合因素</strong>
+                                <p>不同因素之间存在明显程度差异。</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- 脱发分布 -->
+            <section id="distribution" class="page">
+
+                <div class="panel large">
+
+                    <div class="panel-title">
+                        <h3>脱发程度分布</h3>
+                        <span>hair_loss_distribution.csv</span>
+                    </div>
+
+                    <canvas id="hairLossChart"></canvas>
+
+                </div>
+
+            </section>
+
+
+            <!-- 熬夜 -->
+            <section id="sleep" class="page">
+
+                <div class="panel large">
+
+                    <div class="panel-title">
+                        <h3>熬夜与脱发关系</h3>
+                        <span>sleep_analysis.csv</span>
+                    </div>
+
+                    <canvas id="sleepChart"></canvas>
+
+                </div>
+
+            </section>
+
+
+            <!-- 压力 -->
+            <section id="pressure" class="page">
+
+                <div class="panel large">
+
+                    <div class="panel-title">
+                        <h3>压力程度与脱发</h3>
+                        <span>pressure_analysis.csv</span>
+                    </div>
+
+                    <canvas id="pressureChart"></canvas>
+
+                </div>
+
+            </section>
+
+
+            <!-- 咖啡 -->
+            <section id="coffee" class="page">
+
+                <div class="panel large">
+
+                    <div class="panel-title">
+                        <h3>咖啡摄入与脱发</h3>
+                        <span>coffee_analysis.csv</span>
+                    </div>
+
+                    <canvas id="coffeeChart"></canvas>
+
+                </div>
+
+            </section>
+
+
+            <!-- 头发护理 -->
+            <section id="hair" class="page">
+
+                <div class="cards">
+
+                    <div class="card">
+                        <span>油脂分析</span>
+                        <strong>✓</strong>
+                        <small>grease_analysis.csv</small>
+                    </div>
+
+                    <div class="card">
+                        <span>洗发分析</span>
+                        <strong>✓</strong>
+                        <small>hair_washing_analysis.csv</small>
+                    </div>
+
+                    <div class="card">
+                        <span>洗发水分析</span>
+                        <strong>✓</strong>
+                        <small>shampoo_analysis.csv</small>
+                    </div>
+
+                    <div class="card">
+                        <span>游泳分析</span>
+                        <strong>✓</strong>
+                        <small>swimming_analysis.csv</small>
+                    </div>
+
+                </div>
+
+                <div class="panel large">
+                    <div class="panel-title">
+                        <h3>头发护理因素</h3>
+                    </div>
+
+                    <p class="description">
+                        通过头发油脂、洗发频率、洗发水品牌及游泳等因素，
+                        分析不同护理习惯下的脱发情况。
+                    </p>
+                </div>
+
+            </section>
+
+
+            <!-- 因素排名 -->
+            <section id="ranking" class="page">
+
+                <div class="panel large">
+
+                    <div class="panel-title">
+                        <h3>脱发影响因素排名</h3>
+                        <span>factor_ranking.csv</span>
+                    </div>
+
+                    <canvas id="rankingChart"></canvas>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

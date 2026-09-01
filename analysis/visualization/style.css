@@ -1,0 +1,283 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, "Microsoft YaHei", sans-serif;
+    background: #f5f7fb;
+    color: #1f2937;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ���˵� */
+
+.sidebar {
+    width: 250px;
+    background: #111827;
+    color: white;
+    padding: 25px 15px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 5px 10px 30px;
+}
+
+.logo-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: white;
+    color: #111827;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.logo h2 {
+    font-size: 17px;
+}
+
+.logo span {
+    font-size: 11px;
+    color: #9ca3af;
+}
+
+.menu-title {
+    color: #6b7280;
+    font-size: 12px;
+    margin: 10px 12px;
+}
+
+.menu-item {
+    display: block;
+    width: 100%;
+    padding: 13px 15px;
+    margin-bottom: 6px;
+    border: none;
+    background: transparent;
+    color: #d1d5db;
+    text-align: left;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+    .menu-item:hover {
+        background: #1f2937;
+        color: white;
+    }
+
+    .menu-item.active {
+        background: #374151;
+        color: white;
+    }
+
+
+/* ������ */
+
+.main {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    padding: 30px 40px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+    .header h1 {
+        font-size: 27px;
+        margin-bottom: 7px;
+    }
+
+    .header p {
+        color: #6b7280;
+        font-size: 14px;
+    }
+
+.status {
+    background: #ecfdf5;
+    color: #059669;
+    padding: 9px 15px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+
+/* ҳ�� */
+
+.page {
+    display: none;
+}
+
+    .page.active {
+        display: block;
+    }
+
+
+/* ���ݿ�Ƭ */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.card {
+    background: white;
+    padding: 22px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+}
+
+    .card span {
+        display: block;
+        color: #6b7280;
+        font-size: 13px;
+        margin-bottom: 10px;
+    }
+
+    .card strong {
+        display: block;
+        font-size: 27px;
+        margin-bottom: 5px;
+    }
+
+    .card small {
+        color: #9ca3af;
+    }
+
+
+/* ͼ������ */
+
+.grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 20px;
+}
+
+.panel {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+}
+
+    .panel.large {
+        min-height: 500px;
+    }
+
+.panel-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+    .panel-title h3 {
+        font-size: 17px;
+    }
+
+    .panel-title span {
+        font-size: 12px;
+        color: #9ca3af;
+    }
+
+
+/* ���ķ��� */
+
+.finding {
+    display: flex;
+    gap: 15px;
+    padding: 18px 0;
+    border-bottom: 1px solid #eee;
+}
+
+    .finding:last-child {
+        border-bottom: none;
+    }
+
+.finding-icon {
+    width: 35px;
+    height: 35px;
+    border-radius: 8px;
+    background: #f3f4f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.finding strong {
+    font-size: 14px;
+}
+
+.finding p {
+    color: #6b7280;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-top: 5px;
+}
+
+.description {
+    color: #6b7280;
+    line-height: 2;
+    font-size: 14px;
+}
+
+
+/* ��Ӧʽ */
+
+@media (max-width: 900px) {
+
+    .sidebar {
+        width: 200px;
+    }
+
+    .main {
+        margin-left: 200px;
+        width: calc(100% - 200px);
+        padding: 20px;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* =========================
+   图表固定高度
+   ========================= */
+
+.panel canvas {
+    width: 100% !important;
+    height: 380px !important;
+}
+
+.panel.large canvas {
+    width: 100% !important;
+    height: 400px !important;
+}
